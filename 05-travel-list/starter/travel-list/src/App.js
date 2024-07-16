@@ -20,7 +20,7 @@ function Form() {
 
         if(!description) return;
 
-        const newItem = {description, quantity, packed: false, id: Date().now()}
+        const newItem = {description, quantity, packed: false, id: Date.now()}
 
         setQuantity(1);
         setDescription('');
