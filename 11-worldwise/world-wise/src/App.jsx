@@ -4,6 +4,7 @@ import Product from "./pages/Product.jsx";
 import Pricing from "./pages/Pricing.jsx";
 import Home from "./pages/Home.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import AppLayout from "./pages/AppLayout.jsx";
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                     <Route path="/" element={<Home/>}></Route>
                     <Route path="product" element={<Product/>}></Route>
                     <Route path="pricing" element={<Pricing />}></Route>
+                    <Route path="app" element={<AppLayout />}></Route>
                     <Route path="*" element={<NotFound />}></Route>
                 </Routes>
             </BrowserRouter>
