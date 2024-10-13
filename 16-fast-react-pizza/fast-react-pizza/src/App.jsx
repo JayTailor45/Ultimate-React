@@ -10,7 +10,6 @@ import AppLayout from "./ui/AppLayout";
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
-    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -19,6 +18,7 @@ const router = createBrowserRouter([
       {
         path: "/menu",
         element: <Menu />,
+        errorElement: <Error />,
         loader: menuLoader
       },
       {
