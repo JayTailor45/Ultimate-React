@@ -9,6 +9,7 @@ import {
 } from "../../utils/helpers";
 import OrderItem from './OrderItem';
 import { useEffect } from "react";
+import UpdateOrder from "./UpdateOrder";
 
 function Order() {
   const order = useLoaderData();
@@ -64,6 +65,8 @@ function Order() {
         {priority && <p className="font-medium text-sm text-stone-600">Price priority: {formatCurrency(priorityPrice)}</p>}
         <p>To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}</p>
       </div>
+
+      {!priority && <UpdateOrder order={order} />}
     </div>
   );
 }
