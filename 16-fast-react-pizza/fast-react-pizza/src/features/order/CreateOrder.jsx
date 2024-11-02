@@ -34,6 +34,7 @@ const fakeCart = [
 ];
 
 function CreateOrder() {
+  const username = useSelector(state => state.user.username);
   const navigation = useNavigation();
   const formErrors = useActionData();
   const isSubmitting = navigation.state === 'submitting';
@@ -47,7 +48,7 @@ function CreateOrder() {
       <Form method="POST">
         <div className="mb-5 flex gap-2 flex-col sm:flex-row sm:items-center">
           <label className="sm:basis-40">First Name</label>
-          <input className="input w-full" type="text" name="customer" required />
+          <input className="input w-full" type="text" name="customer" required defaultValue={username}/>
         </div>
 
         <div className="mb-5 flex gap-2 flex-col sm:flex-row sm:items-center">
