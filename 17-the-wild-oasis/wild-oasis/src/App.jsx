@@ -11,6 +11,7 @@ import PageNotFound from "./pages/PageNotFound";
 
 import styled from "styled-components";
 import GlobalStyles from "./styles/GlobalStyles";
+import AppLayout from "./ui/AppLayout";
 
 function App() {
   return (
@@ -18,15 +19,17 @@ function App() {
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
-          <Route index element={<Navigate relative to="dashboard" />}></Route>
-          <Route path="dashboard" element={<Dashboard />}></Route>
-          <Route path="bookings" element={<Bookings />}></Route>
-          <Route path="cabins" element={<Cabins />}></Route>
-          <Route path="users" element={<Users />}></Route>
-          <Route path="settings" element={<Settings />}></Route>
-          <Route path="account" element={<Account />}></Route>
-          <Route path="login" element={<Login />}></Route>
-          <Route path="*" element={<PageNotFound />}></Route>
+          <Route element={<AppLayout />}>
+            <Route index element={<Navigate relative to="dashboard" />}></Route>
+            <Route path="dashboard" element={<Dashboard />}></Route>
+            <Route path="bookings" element={<Bookings />}></Route>
+            <Route path="cabins" element={<Cabins />}></Route>
+            <Route path="users" element={<Users />}></Route>
+            <Route path="settings" element={<Settings />}></Route>
+            <Route path="account" element={<Account />}></Route>
+            <Route path="login" element={<Login />}></Route>
+            <Route path="*" element={<PageNotFound />}></Route>
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
