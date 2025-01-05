@@ -17,7 +17,13 @@ function Cabins() {
       </Row>
       <Row>
         <CabinTable />
-        <Button onClick={() => setShow(!show)}>Add new cabins</Button>
+        <Button
+          variation="primary"
+          size="medium"
+          onClick={() => setShow(!show)}
+        >
+          Add new cabins
+        </Button>
         {show && <CreateCabinForm />}
       </Row>
     </>
