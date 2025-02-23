@@ -12,6 +12,7 @@ import Settings from "./pages/Settings";
 import Account from "./pages/Account";
 import Login from "./pages/Login";
 import Booking from "./pages/Booking";
+import Checkin from "./pages/checkin";
 import PageNotFound from "./pages/PageNotFound";
 
 import styled from "styled-components";
@@ -42,6 +43,7 @@ function App() {
               <Route path="dashboard" element={<Dashboard />}></Route>
               <Route path="bookings" element={<Bookings />}></Route>
               <Route path="bookings/:bookingId" element={<Booking />}></Route>
+              <Route path="checkin/:bookingId" element={<Checkin />}></Route>
               <Route path="cabins" element={<Cabins />}></Route>
               <Route path="users" element={<Users />}></Route>
               <Route path="settings" element={<Settings />}></Route>
