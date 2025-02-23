@@ -10,10 +10,13 @@ export function useBookings() {
     const [field, direction] = sortByRaw.split('-');
     const sortBy = { field, direction };
     const filter = !filterValue || filterValue === 'all' ? null : { field: 'status', value: filterValue, method: 'eq' };
+    const page = !searchParams.get("page")
+        ? 1
+        : Number(searchParams.get("page"));
 
-    const { isLoading, data: bookings, error } = useQuery({
-        queryKey: ['bookings', filter, sortBy],
-        queryFn: () => getBookings({ filter, sortBy }),
+    const { isLoading, error, data: { data: bookings, count } = {} } = useQuery({
+        queryKey: ['bookings', filter, sortBy, page],
+        queryFn: () => getBookings({ filter, sortBy, page }),
     });
-    return { isLoading, error, bookings };
+    return { isLoading, error, bookings, count };
 }
