@@ -11,6 +11,7 @@ import Users from "./pages/Users";
 import Settings from "./pages/Settings";
 import Account from "./pages/Account";
 import Login from "./pages/Login";
+import Booking from "./pages/Booking";
 import PageNotFound from "./pages/PageNotFound";
 
 import styled from "styled-components";
@@ -40,6 +41,7 @@ function App() {
               ></Route>
               <Route path="dashboard" element={<Dashboard />}></Route>
               <Route path="bookings" element={<Bookings />}></Route>
+              <Route path="bookings/:bookingId" element={<Booking />}></Route>
               <Route path="cabins" element={<Cabins />}></Route>
               <Route path="users" element={<Users />}></Route>
               <Route path="settings" element={<Settings />}></Route>
