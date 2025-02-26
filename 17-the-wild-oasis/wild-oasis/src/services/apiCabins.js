@@ -13,7 +13,7 @@ export async function getCabins() {
     return data;
 }
 
-export async function deleteCabin(id) {
+export async function deleteBooking(id) {
     const { data, error } = await supabase
         .from('cabins')
         .delete()
