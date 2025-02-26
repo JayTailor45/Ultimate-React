@@ -18,6 +18,7 @@ import PageNotFound from "./pages/PageNotFound";
 import styled from "styled-components";
 import GlobalStyles from "./styles/GlobalStyles";
 import AppLayout from "./ui/AppLayout";
+import ProtectedRoute from "./ui/ProtectedRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,7 +36,13 @@ function App() {
         <GlobalStyles />
         <BrowserRouter>
           <Routes>
-            <Route element={<AppLayout />}>
+            <Route
+              element={
+                <ProtectedRoute>
+                  <AppLayout />
+                </ProtectedRoute>
+              }
+            >
               <Route
                 index
                 element={<Navigate relative to="dashboard" />}
@@ -48,9 +55,9 @@ function App() {
               <Route path="users" element={<Users />}></Route>
               <Route path="settings" element={<Settings />}></Route>
               <Route path="account" element={<Account />}></Route>
-              <Route path="login" element={<Login />}></Route>
-              <Route path="*" element={<PageNotFound />}></Route>
             </Route>
+            <Route path="login" element={<Login />}></Route>
+            <Route path="*" element={<PageNotFound />}></Route>
           </Routes>
         </BrowserRouter>
         <Toaster
