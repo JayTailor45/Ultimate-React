@@ -13,6 +13,7 @@ import React from "react";
 import { useRecentBookings } from "./useRecentBookings";
 import { useRecentStays } from "./useRecentStays";
 import { useCabins } from "../cabins/useCabins";
+import SalesChart from "./SalesChart";
 
 export default function DashboardLayout() {
   const { bookings, isLoadingBookings } = useRecentBookings();
@@ -29,6 +30,7 @@ export default function DashboardLayout() {
         numDays={numDays}
         cabinCount={(cabins || []).length}
       />
+      <SalesChart bookings={bookings || []} numDays={numDays} />
     </StyledDashboardLayout>
   );
 }
