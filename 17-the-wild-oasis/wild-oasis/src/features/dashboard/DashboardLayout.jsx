@@ -14,6 +14,7 @@ import { useRecentBookings } from "./useRecentBookings";
 import { useRecentStays } from "./useRecentStays";
 import { useCabins } from "../cabins/useCabins";
 import SalesChart from "./SalesChart";
+import DurationChart from "./DurationChart";
 
 export default function DashboardLayout() {
   const { bookings, isLoadingBookings } = useRecentBookings();
@@ -30,6 +31,8 @@ export default function DashboardLayout() {
         numDays={numDays}
         cabinCount={(cabins || []).length}
       />
+      {/* TODO: Check why charts don't show up */}
+      <DurationChart confirmedStays={confirmedStays || []} />
       <SalesChart bookings={bookings || []} numDays={numDays} />
     </StyledDashboardLayout>
   );
