@@ -12,7 +12,7 @@ import Settings from "./pages/Settings";
 import Account from "./pages/Account";
 import Login from "./pages/Login";
 import Booking from "./pages/Booking";
-import Checkin from "./pages/checkin";
+import Checkin from "./pages/Checkin";
 import PageNotFound from "./pages/PageNotFound";
 
 import styled from "styled-components";
