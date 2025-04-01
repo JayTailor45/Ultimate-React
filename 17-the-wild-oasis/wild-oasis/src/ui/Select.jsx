@@ -18,7 +18,7 @@ import React from "react";
 
 function Select({ options, value, onChange, ...props }) {
   return (
-    <StyledSelect value={value} {...props} onChange={onChange}>
+    <StyledSelect value={value ?? ''} {...props} onChange={onChange}>
       {options.map((option) => (
         <option key={option.value} value={option.value}>
           {option.label}
