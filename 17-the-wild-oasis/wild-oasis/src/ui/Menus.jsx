@@ -96,9 +96,9 @@ function Toggle({ id }) {
     openId === "" || openId !== id ? open(id) : close();
   }
   return (
-    <StyledButton onClick={handleClick}>
+    <StyledToggle onClick={handleClick}>
       <HiEllipsisVertical />
-    </StyledButton>
+    </StyledToggle>
   );
 }
 

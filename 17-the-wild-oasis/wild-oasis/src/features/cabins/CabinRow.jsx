@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {formatCurrency} from '../../utils/helpers';
+import { formatCurrency } from "../../utils/helpers";
 import { HiSquare2Stack, HiPencil, HiTrash } from "react-icons/hi2";
 
 // const TableRow = styled.div`
@@ -113,4 +113,4 @@ function CabinRow({ cabin }) {
   );
 }
 
-export default CabinRow
+export default CabinRow;
