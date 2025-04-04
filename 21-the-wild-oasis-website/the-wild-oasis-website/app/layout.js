@@ -4,8 +4,11 @@ import Navigation from "@/app/_components/Navigation";
 import "@/app/_styles/globals.css"
 
 export const metadata = {
-  title: "The Wild Oasis",
-  description: "book your dream room",
+  title: {
+    template: "%s | The Wild Oasis",
+    default: "The Wild Oasis",
+  },
+  description: "Book your dream room",
 };
 
 export default function RootLayout({ children }) {
