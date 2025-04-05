@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export const metadata = {
   title: "Account",
@@ -7,6 +7,10 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <h1>Account</h1>
-  )
+    <div>
+      <h2 className="font-semibold text-2xl text-accent-400 mb-7">
+        Your reservations
+      </h2>
+    </div>
+  );
 }
