@@ -1,3 +1,4 @@
+"use server"
 import { getCountries } from '@/app/_libs/data-service';
 
 // Let's imagine your colleague already built this component 😃
