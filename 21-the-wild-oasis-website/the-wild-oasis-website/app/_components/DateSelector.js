@@ -1,36 +1,62 @@
 "use client";
 import { isWithinInterval } from "date-fns";
+import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 
 function isAlreadyBooked(range, datesArr) {
   return (
-    range.from &&
-    range.to &&
+    range?.from &&
+    range?.to &&
     datesArr.some((date) =>
-      isWithinInterval(date, { start: range.from, end: range.to })
+      isWithinInterval(date, { start: range?.from, end: range?.to })
     )
   );
 }
 
-function DateSelector({cabin, settings, bookedDates}) {
+function DateSelector({ cabin, settings, bookedDates }) {
+  const [range, setRange] = useState({ from: undefined, to: undefined });
   // CHANGE
   const regularPrice = 23;
   const discount = 23;
   const numNights = 23;
   const cabinPrice = 23;
-  const range = { from: null, to: null };
 
   // SETTINGS
   const { minBookingLength, maxBookingLength } = settings;
+  // const handleSelect = (selectedRange) => {
+  //   setRange((prevs) => ({ ...prevs, ...selectedRange }));
+  // };
+    const handleSelect = (selectedRange) => {
+      if (!selectedRange) return;
+   
+      setRange((prevRange) => {
+        if (
+          prevRange?.from?.getTime() === selectedRange?.from?.getTime() &&
+          prevRange?.to === undefined &&
+          selectedRange?.to === undefined
+        ) {
+          return prevRange;
+        }
+   
+        return {
+          ...prevRange,
+          ...selectedRange,
+        };
+      });
+    };
 
   return (
+    // TODO: Check why daypicker is not working correctly
     <div className="flex flex-col justify-between">
+      {/* <div>{range?.from?.toString()} , {range?.to?.toString()}</div> */}
       <DayPicker
         className="pt-12 place-self-center"
         mode="range"
         min={minBookingLength + 1}
         max={maxBookingLength}
+        selected={range}
+        onSelect={handleSelect}
         fromMonth={new Date()}
         fromDate={new Date()}
         toYear={new Date().getFullYear() + 5}
@@ -66,7 +92,7 @@ function DateSelector({cabin, settings, bookedDates}) {
           ) : null}
         </div>
 
-        {range.from || range.to ? (
+        {range?.from || range?.to ? (
           <button
             className="border border-primary-800 py-2 px-4 text-sm font-semibold"
             onClick={() => resetRange()}
